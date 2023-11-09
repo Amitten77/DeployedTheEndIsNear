@@ -42,19 +42,19 @@ cargo:rerun-if-env-changed=HOST_CFLAGS
 HOST_CFLAGS = None
 cargo:rerun-if-env-changed=CFLAGS
 CFLAGS = None
-running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/blocksort.o" "-c" "bzip2-1.0.8/blocksort.c"
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/blocksort.o" "-c" "bzip2-1.0.8/blocksort.c"
 exit status: 0
-running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/huffman.o" "-c" "bzip2-1.0.8/huffman.c"
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/huffman.o" "-c" "bzip2-1.0.8/huffman.c"
 exit status: 0
-running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/crctable.o" "-c" "bzip2-1.0.8/crctable.c"
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/crctable.o" "-c" "bzip2-1.0.8/crctable.c"
 exit status: 0
-running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/randtable.o" "-c" "bzip2-1.0.8/randtable.c"
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/randtable.o" "-c" "bzip2-1.0.8/randtable.c"
 exit status: 0
-running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/compress.o" "-c" "bzip2-1.0.8/compress.c"
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/compress.o" "-c" "bzip2-1.0.8/compress.c"
 exit status: 0
-running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/decompress.o" "-c" "bzip2-1.0.8/decompress.c"
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/decompress.o" "-c" "bzip2-1.0.8/decompress.c"
 exit status: 0
-running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/bzlib.o" "-c" "bzip2-1.0.8/bzlib.c"
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-gdwarf-2" "-fno-omit-frame-pointer" "-arch" "arm64" "-I" "bzip2-1.0.8" "-D_FILE_OFFSET_BITS=64" "-DBZ_NO_STDIO" "-o" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/bzlib.o" "-c" "bzip2-1.0.8/bzlib.c"
 exit status: 0
 cargo:rerun-if-env-changed=AR_aarch64-apple-darwin
 AR_aarch64-apple-darwin = None
@@ -72,11 +72,11 @@ cargo:rerun-if-env-changed=HOST_ARFLAGS
 HOST_ARFLAGS = None
 cargo:rerun-if-env-changed=ARFLAGS
 ARFLAGS = None
-running: ZERO_AR_DATE="1" "ar" "cq" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/libbz2.a" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/blocksort.o" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/huffman.o" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/crctable.o" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/randtable.o" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/compress.o" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/decompress.o" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/bzlib.o"
+running: ZERO_AR_DATE="1" "ar" "cq" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/libbz2.a" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/blocksort.o" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/huffman.o" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/crctable.o" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/randtable.o" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/compress.o" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/decompress.o" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/bzip2-1.0.8/bzlib.o"
 exit status: 0
-running: "ar" "s" "/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/libbz2.a"
+running: "ar" "s" "/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib/libbz2.a"
 exit status: 0
 cargo:rustc-link-lib=static=bz2
-cargo:rustc-link-search=native=/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib
-cargo:root=/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out
-cargo:include=/Users/amit/FunProjects/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/include
+cargo:rustc-link-search=native=/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/lib
+cargo:root=/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out
+cargo:include=/Users/amit/Desktop/TheEndisNear/rust_backend/target/debug/build/bzip2-sys-c6c95d677ee470ea/out/include
