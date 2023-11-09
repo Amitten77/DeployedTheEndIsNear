@@ -2,9 +2,9 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import Constant from '../../../config.json'
-import * as nearAPI from "near-api-js";
-const { connect, keyStores, WalletConnection, Contract } = nearAPI;
-const myKeyStore = new keyStores.BrowserLocalStorageKeyStore();
+// import * as nearAPI from "near-api-js";
+// const { connect, keyStores, WalletConnection, Contract } = nearAPI;
+// const myKeyStore = new keyStores.BrowserLocalStorageKeyStore();
 import Swal from 'sweetalert2'
 //const CONTRACT_NAME = "dev-1699537536854-72967740915618";
 const CONTRACT_NAME = "dev-1699537536854-72967740915618";
@@ -55,58 +55,58 @@ const page = () => {
         };
       }, []);
         //dev-1699537536854-72967740915618
-      const func = async () => {
-        const myKeyStore = new keyStores.BrowserLocalStorageKeyStore();
-        const connectionConfig = {
-          networkId: "testnet",
-          keyStore: myKeyStore, // first create a key store 
-          nodeUrl: "https://rpc.testnet.near.org",
-          walletUrl: "https://wallet.testnet.near.org",
-          helperUrl: "https://helper.testnet.near.org",
-          explorerUrl: "https://explorer.testnet.near.org",
-        };
-        const nearConnection = await connect(connectionConfig);
-        const wallet = new WalletConnection(nearConnection, 'the-end-is-near');
-        if(!wallet.isSignedIn()) {
-          wallet.requestSignIn({
-            contractId: CONTRACT_NAME,
-            methodNames: [], // optional
-            successUrl: "http://localhost:3000/singleStory", // optional redirect URL on success
-            failureUrl: "http://localhost:3000/singleStory" // optional redirect URL on failure
-          });
+      // const func = async () => {
+      //   const myKeyStore = new keyStores.BrowserLocalStorageKeyStore();
+      //   const connectionConfig = {
+      //     networkId: "testnet",
+      //     keyStore: myKeyStore, // first create a key store 
+      //     nodeUrl: "https://rpc.testnet.near.org",
+      //     walletUrl: "https://wallet.testnet.near.org",
+      //     helperUrl: "https://helper.testnet.near.org",
+      //     explorerUrl: "https://explorer.testnet.near.org",
+      //   };
+      //   const nearConnection = await connect(connectionConfig);
+      //   const wallet = new WalletConnection(nearConnection, 'the-end-is-near');
+      //   if(!wallet.isSignedIn()) {
+      //     wallet.requestSignIn({
+      //       contractId: CONTRACT_NAME,
+      //       methodNames: [], // optional
+      //       successUrl: "http://localhost:3000/singleStory", // optional redirect URL on success
+      //       failureUrl: "http://localhost:3000/singleStory" // optional redirect URL on failure
+      //     });
 
 
 
-        }
-        const account = wallet.account();
-          const contract = new Contract(
-            account, // the account object that is connecting
-            CONTRACT_NAME,
-            {
-              // name of contract you're connecting to
-              viewMethods: ["get_greeting"], // view methods do not change state but usually return a value
-              changeMethods: ["set_greeting", "pay"], // change methods modify state
-            }
-          );
-          setAccount(account)
-          setContract(contract)
-        }
+      //   }
+      //   const account = wallet.account();
+      //     const contract = new Contract(
+      //       account, // the account object that is connecting
+      //       CONTRACT_NAME,
+      //       {
+      //         // name of contract you're connecting to
+      //         viewMethods: ["get_greeting"], // view methods do not change state but usually return a value
+      //         changeMethods: ["set_greeting", "pay"], // change methods modify state
+      //       }
+      //     );
+      //     setAccount(account)
+      //     setContract(contract)
+      //   }
 
-      const wagerSubmit = async () => {
-          const value = await contract.pay(
-            {
-              //greeting: "vikram", // argument name and value - pass empty object if no args required
-              amount: amount,
-              to: "vpidaparthi.testnet"
-            }
-          ).then(() => {
-            Swal.fire({
-              title: "Congrats!",
-              text: "You have wagered your bet. Good luck!",
-              icon: "success"
-            });
-          })
-      }
+      // const wagerSubmit = async () => {
+      //     const value = await contract.pay(
+      //       {
+      //         //greeting: "vikram", // argument name and value - pass empty object if no args required
+      //         amount: amount,
+      //         to: "vpidaparthi.testnet"
+      //       }
+      //     ).then(() => {
+      //       Swal.fire({
+      //         title: "Congrats!",
+      //         text: "You have wagered your bet. Good luck!",
+      //         icon: "success"
+      //       });
+      //     })
+      // }
 
 
 
@@ -121,12 +121,12 @@ const page = () => {
             <li>-Wager NEAR testnet currency for a chance to win more NEAR testnet currency if you earn a top five score (optional!)</li>
         </ul>
         </div>
-        <div className='bg-white text-black mb-16 text-xl p-8'>
+        {/* <div className='bg-white text-black mb-16 text-xl p-8'>
             <label>Type in Wager (testnet NEAR)</label>
             <input className='outline-double' placeholder='10' type="number" value={amount} onChange={e => setAmount(Number(e.target.value))}></input>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2" onClick={wagerSubmit}>Submit Wager</button>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2" onClick={func}>Connect Wallet</button>
-        </div>
+        </div> */}
         <h1 className='text-black text-3xl mb-16 bg-green-500 p-8'>Hit Enter to continue</h1>
     </div>
   )
