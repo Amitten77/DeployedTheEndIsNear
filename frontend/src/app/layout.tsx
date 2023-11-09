@@ -5,10 +5,10 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Crossy Tractor',
-  description: 'Research Park Hackathon 2023',
+  title: 'The End is NEAR',
+  description: 'NEARCON submission 2023',
   icons: {
-    icon: "./players/pig.ico"
+    icon: "./players/near.png"
   }
 }
 

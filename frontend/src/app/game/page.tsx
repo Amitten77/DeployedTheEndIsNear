@@ -9,13 +9,14 @@ const Game = () => {
 let enemySpeed: any = 0.5
 let cornSpeed: any = 0.5
 let enemiesObjects: any[] = []
+let downObjects: any[] = []
 let cornObjects: any[] = []
 let currentTime = 0
 let score: any = 0
 let hearts: any = 3
 let enemiesMap: any = {}
+let downMap: any = {}
 let scoreIncreaseTimeTracker: any = 0
-let minAmountOfCornUntilEthanolPowerup: any = 10
 let lassoCooldown = 10
 
 function rectsIntersect(a: any, b: any) {
@@ -47,7 +48,7 @@ const pixiContainerRef = useRef<HTMLDivElement>(null);
         pixiContainerRef.current.appendChild(app.view);
       }
 
-      const background = PIXI.Sprite.from('./players/background.png');
+      const background = PIXI.Sprite.from('./map/portugal_map.png');
 
       background.anchor.set(0.5)
 
@@ -63,11 +64,11 @@ const pixiContainerRef = useRef<HTMLDivElement>(null);
 
 
 
-    const user = PIXI.Sprite.from('./players/combine-removebg-preview (1).png');
+    const user = PIXI.Sprite.from('./players/illia.png');
 
 
 
-    const farmerStanding = PIXI.Sprite.from('./players/farmer.ico');
+    const farmerStanding = PIXI.Sprite.from('./players/gary.png');
     const farmerWithoutLasso = PIXI.Sprite.from('./players/farmerExtend.ico')
     const lasso = PIXI.Sprite.from('./players/lasso.ico')
     farmerStanding.anchor.set(0.5);
@@ -77,7 +78,7 @@ const pixiContainerRef = useRef<HTMLDivElement>(null);
     farmerStanding.x = app.screen.width/2
     farmerStanding.width = 100
     farmerStanding.height = 100
-    farmerStanding.y = 230
+    farmerStanding.y = 100
     app.stage.addChild(farmerStanding)
 
     //Needs editting
@@ -95,7 +96,7 @@ const pixiContainerRef = useRef<HTMLDivElement>(null);
     user.x = app.screen.width / 2;
     user.y = app.screen.height / 2;
     user.width = 190;
-    user.height = 100;
+    user.height = 200;
     
     app.stage.addChild(user);
 
@@ -117,7 +118,7 @@ const pixiContainerRef = useRef<HTMLDivElement>(null);
         app.stage.removeChild(scoreText)
       }
 
-      scoreText = new PIXI.Text('Corn Harvested: ' + score.toString(), {
+      scoreText = new PIXI.Text('NEAR Collected: ' + score.toString(), {
         fontFamily: 'Arial',
         fontSize: 72,
         fill: 0x000000, // Color in hexadecimal format
@@ -197,7 +198,7 @@ const pixiContainerRef = useRef<HTMLDivElement>(null);
           cornSpeed += .1
         }
             if (randomNum==2 || randomNum==3 || randomNum==4) {
-              const corn = PIXI.Sprite.from('./players/corn-removebg-preview.ico');
+              const corn = PIXI.Sprite.from('./players/near.png');
               corn.anchor.set(0.5)
               corn.width = 75
               corn.height = 75
@@ -206,18 +207,20 @@ const pixiContainerRef = useRef<HTMLDivElement>(null);
               app.stage.addChild(corn)
               cornObjects.push(corn)
             } else if (randomNum==1) {
-              let randomNum2 = random.int(0,1)
+              let randomNum2 = random.int(0,2)
               let obstacle: any = -1
               if (randomNum2==1) {
-                obstacle = PIXI.Sprite.from('./players/pig.ico');
+                obstacle = PIXI.Sprite.from('./players/bitcoin-btc-logo.png');
+              } else if (randomNum2==0) {
+                obstacle = PIXI.Sprite.from('./players/ethereum-eth-logo.png')
               } else {
-                obstacle = PIXI.Sprite.from('./players/cow-removebg-preview.ico')
+                obstacle = PIXI.Sprite.from('./players/solana-sol-logo.png')
               }
               obstacle.width = 75
               obstacle.height = 75
               obstacle.anchor.set(0.5);
               obstacle.x = app.screen.width - obstacle.width
-              obstacle.y = random.int(350, 530)
+              obstacle.y = random.int(350, app.screen.height - 100)
               app.stage.addChild(obstacle)
               enemiesObjects.push(obstacle)
               enemiesMap[obstacle] = false
@@ -240,6 +243,30 @@ const pixiContainerRef = useRef<HTMLDivElement>(null);
           app.stage.removeChild(i)
           let elementToRemove: any = i
           enemiesObjects = enemiesObjects.filter(item => item !== elementToRemove)
+          if (hearts <= 0) {
+            SPEED = 0;
+            enemySpeed = 0
+            cornSpeed = 0
+            window.location.replace(Constant.rootURL + '/endGame')
+            localStorage.setItem('score', score.toString());
+          }
+          
+        }
+      }
+      for (const i of downObjects) {
+        i.y += enemySpeed
+        if (rectsIntersect(user, i)) {
+          const audio = document.getElementById('oopsAudio') as HTMLVideoElement
+            if (audio) {
+              audio.play()
+            }
+          if (!downMap[i]) {
+            hearts -= 1
+            downMap[i] = true
+          }
+          app.stage.removeChild(i)
+          let elementToRemove: any = i
+          downObjects = downObjects.filter(item => item !== elementToRemove)
           if (hearts <= 0) {
             SPEED = 0;
             enemySpeed = 0
@@ -292,42 +319,60 @@ const pixiContainerRef = useRef<HTMLDivElement>(null);
         farmerStanding.x += SPEED
       }
 
-      if (lassoCooldown > 30) {
+      if (lassoCooldown > 120) {
         if (keys["38"]) {
-          for (let enemy of enemiesObjects) {
-            if (Math.abs(farmerWithoutLasso.x - enemy.x) < 100) {
-                const audio = document.getElementById('whooshAudio') as HTMLVideoElement
-                if (audio) {
-                audio.play()
-                }
-              enemy.x = farmerWithoutLasso.x
-              farmerWithoutLasso.x = farmerStanding.x-10
-              lasso.x = farmerStanding.x
-              lasso.y = farmerStanding.y
-              app.stage.removeChild(farmerStanding)
-              app.stage.addChild(farmerWithoutLasso)
-              //app.stage.addChild(lasso)
-              lasso.height = enemy.y - farmerWithoutLasso.y
-              for (let j=1; j<lasso.height; j+=1) {
-                if (enemy.y - farmerWithoutLasso.y > 10) {
-                  enemy.y -= j
-                }
-                if (lasso.height > 10) {
-                  lasso.height -= j
-                } else {
-                  app.stage.removeChild(lasso)
-                }
-              }
-              let elementToRemove2 = enemy
-              enemiesObjects.filter(item => item !== elementToRemove2)
-              enemiesMap[enemy] = true
-              app.stage.removeChild(farmerWithoutLasso)
-              app.stage.addChild(farmerStanding)
-            } else {
-              //implement delay here - use time keeping variable
-              lassoCooldown = 15
-            }
+          let randomNum2 = random.int(0,2)
+          let obstacle: any = -1
+          if (randomNum2==1) {
+            obstacle = PIXI.Sprite.from('./players/bitcoin-btc-logo.png');
+          } else if (randomNum2==0) {
+            obstacle = PIXI.Sprite.from('./players/ethereum-eth-logo.png')
+          } else {
+            obstacle = PIXI.Sprite.from('./players/solana-sol-logo.png')
           }
+          obstacle.width = 75
+          obstacle.height = 75
+          obstacle.anchor.set(0.5);
+          obstacle.x = farmerStanding.x;
+          obstacle.y = farmerStanding.y;
+          app.stage.addChild(obstacle)
+          downObjects.push(obstacle)
+          downMap[obstacle] = false
+          // for (let enemy of enemiesObjects) {
+          //   if (Math.abs(farmerWithoutLasso.x - enemy.x) < 100) {
+          //       const audio = document.getElementById('whooshAudio') as HTMLVideoElement
+          //       if (audio) {
+          //       audio.play()
+          //       }
+          //     enemy.x = farmerWithoutLasso.x
+          //     farmerWithoutLasso.x = farmerStanding.x-10
+          //     lasso.x = farmerStanding.x
+          //     lasso.y = farmerStanding.y
+          //     app.stage.removeChild(farmerStanding)
+          //     app.stage.addChild(farmerWithoutLasso)
+          //     //app.stage.addChild(lasso)
+          //     lasso.height = enemy.y - farmerWithoutLasso.y
+          //     for (let j=1; j<lasso.height; j+=1) {
+          //       if (enemy.y - farmerWithoutLasso.y > 10) {
+          //         enemy.y -= j
+          //       }
+          //       if (lasso.height > 10) {
+          //         lasso.height -= j
+          //       } else {
+          //         app.stage.removeChild(lasso)
+          //       }
+          //     }
+          //     let elementToRemove2 = enemy
+          //     enemiesObjects.filter(item => item !== elementToRemove2)
+          //     enemiesMap[enemy] = true
+          //     app.stage.removeChild(farmerWithoutLasso)
+          //     app.stage.addChild(farmerStanding)
+          //   } else {
+          //     //implement delay here - use time keeping variable
+          //     lassoCooldown = 15
+          //   }
+          // }
+
         }
         lassoCooldown = 0
       }

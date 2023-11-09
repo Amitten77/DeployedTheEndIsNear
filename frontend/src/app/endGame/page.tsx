@@ -63,6 +63,7 @@ const fontStyles: any = {
   top: '20px', /* Adjust the distance from the bottom of the screen */
   left: '50%', /* Center the container horizontally */
   transform: 'translateX(-50%)',
+  backgroundColor: "#ebaa14"
   // backgroundColor: "#ffde00",
   // fontWeight: 'bold',
 };
@@ -71,9 +72,10 @@ const fontStyles2: any = {
   fontFamily: 'Courier, monospace', // Use the 'VT323' font from Google Fonts
   fontSize: '18px',
   position: 'fixed', /* Use 'fixed' to position the container relative to the viewport */
-  top: '80px', /* Adjust the distance from the bottom of the screen */
+  top: '140px', /* Adjust the distance from the bottom of the screen */
   left: '50%', /* Center the container horizontally */
   transform: 'translateX(-50%)',
+  backgroundColor: "#fcd103"
   // backgroundColor: "#ffde00",
   // fontWeight: 'bold',
 };
@@ -129,8 +131,7 @@ const endGame = () => {
       // <div className="endgame-container">
         <div className="endgame-container text-black">
           <div className="text" style={fontStyles}>
-            <h1 className='text-6xl flex justify-center mt-6'>Game Over!</h1>
-            <div className="text2" style={fontStyles2}>
+            <div className="text2 bg-white" style={fontStyles2}>
             <h1 className='w-96 pl-10 text-xl'>{name}, your score is: {score}</h1>
             </div>
           </div>

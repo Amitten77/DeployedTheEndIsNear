@@ -30,9 +30,9 @@ export default function Home() {
     padding: "15px 50px",
     cursor: "pointer",
     position: 'fixed', /* Use 'fixed' to position the container relative to the viewport */
-    bottom: '20px', /* Adjust the distance from the bottom of the screen */
+    bottom: '10px', /* Adjust the distance from the bottom of the screen */
     left: '50%', /* Center the container horizontally */
-    transform: 'translateX(-150%)',
+    transform: 'translateX(-200%)',
     fontFamily: 'Courier, monospace', // Use the 'VT323' font from Google Fonts
   };
 
@@ -45,9 +45,24 @@ export default function Home() {
     padding: "15px 50px",
     cursor: "pointer",
     position: 'fixed', /* Use 'fixed' to position the container relative to the viewport */
-    bottom: '20px', /* Adjust the distance from the bottom of the screen */
+    bottom: '10px', /* Adjust the distance from the bottom of the screen */
     left: '50%', /* Center the container horizontally */
-    transform: 'translateX(-10%)',
+    transform: 'translateX(-75%)',
+    fontFamily: 'Courier, monospace', // Use the 'VT323' font from Google Fonts
+  };
+
+  const buttonStyle3: any = {
+    color: "#000000",
+    backgroundColor: "#ffde00",
+    fontSize: "22px",
+    border: "6px solid #000000",
+    borderRadius: "8px",
+    padding: "15px 50px",
+    cursor: "pointer",
+    position: 'fixed', /* Use 'fixed' to position the container relative to the viewport */
+    bottom: '10px', /* Adjust the distance from the bottom of the screen */
+    left: '50%', /* Center the container horizontally */
+    transform: 'translateX(40%)',
     fontFamily: 'Courier, monospace', // Use the 'VT323' font from Google Fonts
   };
 
@@ -64,11 +79,14 @@ export default function Home() {
       {/* <h2>What is your name?</h2> */}
       <input className="w-6/12 object-bottom shadow justify-center appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" style={inputStyle} type="text" placeholder="Enter Your Name" onChange={handleInputChange}/>
       <div id="control-panel" className='flex justify-center mt-8'>
+        <a href="singleStory">
+          <button id="GM" style={buttonStyle1} onClick={handleOnClick}>Single-Player</button>
+        </a>
         <a href="story">
-          <button id="GM" style={buttonStyle1} onClick={handleOnClick}>Play Game</button>
+          <button id="GM" style={buttonStyle2} onClick={handleOnClick}>Multi-Player</button>
         </a>
         <a href="leaderboard">
-          <button id="LDBD" style={buttonStyle2} onClick={() => {
+          <button id="LDBD" style={buttonStyle3} onClick={() => {
             const audio = document.getElementById('audio') as HTMLVideoElement
             if (audio) {
               audio.play()
