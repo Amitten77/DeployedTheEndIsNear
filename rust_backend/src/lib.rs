@@ -2,6 +2,8 @@
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 use near_sdk::env::log_str;
 use near_sdk::near_bindgen;
+use near_sdk::{env, AccountId, Promise};
+
 
 // Define the contract structure
 #[near_bindgen]
@@ -20,16 +22,15 @@ impl Default for Contract {
 // Implement the contract structure
 #[near_bindgen]
 impl Contract {
-    // Public method - returns the greeting saved, defaulting to DEFAULT_GREETING
-    pub fn get_greeting(&self) -> String {
-        return self.greeting.clone();
+
+    pub fn pay(amount: u128, to: AccountId) -> Promise {
+        assert!(
+            env::account_balance() >= amount,
+            "The contract doesn't have enough balance to send tokens."
+        );
+        Promise::new(to).transfer(amount)
     }
 
-    // Public method - accepts a greeting, such as "howdy", and records it
-    pub fn set_greeting(&mut self, greeting: String) {
-        log_str(&format!("Saving greeting: {greeting}"));
-        self.greeting = greeting;
-    }
 }
 
 /*

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Constant from '../../../config.json'
+import Swal from 'sweetalert2'
 
 // const leaderboardData = [
 //   { name: 'Player 1', score: 100 },
@@ -99,6 +100,20 @@ const endGame = () => {
       setScore(storedScore)
     }
     setLoading(false);
+
+    if (Number(score) > 200) {
+      Swal.fire({
+        title: "Congrats",
+        text: "Your score is good enough- you get your money back!",
+        icon: "success"
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Sorry",
+        text: "Your score wasn't good enough- you don't get your money :(",
+      });
+    }
   }, [])
 
   const handleLeaderboard = () => {
