@@ -7,17 +7,17 @@ import Constant from '../../../config.json'
 // const myKeyStore = new keyStores.BrowserLocalStorageKeyStore();
 import Swal from 'sweetalert2'
 //const CONTRACT_NAME = "dev-1699537536854-72967740915618";
-const CONTRACT_NAME = "dev-1699537536854-72967740915618";
+// const CONTRACT_NAME = "dev-1699537536854-72967740915618";
 
 
-const connectionConfig = {
-  networkId: "testnet",
-  keyStore: myKeyStore, // first create a key store 
-  nodeUrl: "https://rpc.testnet.near.org",
-  walletUrl: "https://wallet.testnet.near.org",
-  helperUrl: "https://helper.testnet.near.org",
-  explorerUrl: "https://explorer.testnet.near.org",
-};
+// const connectionConfig = {
+//   networkId: "testnet",
+//   keyStore: myKeyStore, // first create a key store 
+//   nodeUrl: "https://rpc.testnet.near.org",
+//   walletUrl: "https://wallet.testnet.near.org",
+//   helperUrl: "https://helper.testnet.near.org",
+//   explorerUrl: "https://explorer.testnet.near.org",
+// };
 
 const divStyle = {
     backgroundImage: "url('./map/castle.png')",
